@@ -4,11 +4,10 @@ var fs = require('fs');
 var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
-    var buffer = fs.readFileSync('index.html')
-    response.send(buffer.toString('utf8'));
+    response.send(fs.readFileSync('index.html').toString('utf8'));
 });
 
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 5001;
 app.listen(port, function() {
   console.log("Listening on " + port);
 });
